@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for a in teachers %}
+    <p>{{ a.last_name }} {{ a.first_name }} {{ a.sure_name }}</p>
+ <img src="{{ MEDIA_URL }}{a.img}">
+{% endfor %}
+
+</body>
+</html>
