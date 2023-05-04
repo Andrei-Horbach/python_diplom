@@ -17,66 +17,67 @@
 </head>
 <body>
 
-<div class="col-4"></div>
+<div class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
 
-  <div class="row">
+    <div class="col-1"></div>
       <!-- Logo -->
     <div class="col-4">
-        <img style="width:35%;" src="{% static 'images/logotip.jpg' %}">
+        <img src="{% static 'images/logotip.jpg' %}" width="90" height="90">
+        Творческая изостудия "В красках"
     </div>
-
-    <!-- NAV BAR -->
     <div class="col-6">
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Панель навигации</a>
+            <a class="navbar-brand" href="">Главная</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Переключатель навигации">
                 <span class="navbar-toggler-icon"></span>
             </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Главная</a>
+          <a class="nav-link active" aria-current="page" href="">Программы</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Рекомендуемые</a>
+          <a class="nav-link" href="">Цены</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Цена</a>
+          <a class="nav-link" href="">Преподаватели</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Выпадающий список ссылкой
+          <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            О нас
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Действие</a></li>
-            <li><a class="dropdown-item" href="#">Другое действие</a></li>
-            <li><a class="dropdown-item" href="#">Что-то еще здесь</a></li>
+            <li><a class="dropdown-item" href="">Наши правила</a></li>
+            <li><a class="dropdown-item" href="">О студии</a></li>
+            <li><a class="dropdown-item" href="">Контакты</a></li>
           </ul>
          </li>
          </ul>
         </div>
         </div>
-    </nav>
-
+        </nav>
     </div>
-  </div>
+</div>
 
+
+<div class="container">
   <div class="row">
-      <div class="col-3">
-      </div>
-      <!-- Блок Контента -->
-      <div class="col-9">  <!-- Столбик на 9 позиций -->
+
           {% block content %}{% endblock %}
-      </div>
   </div>
   <div class="row">  <!-- Третья строка -->
       <div class="col-12">  <!-- Столбик на 12 позиций -->
-          <br><br><p class="text-center">Copyright ООО "Мир Книг", 2023. Все права защищены.</p>
+          <br><br><p class="text-center">Фотогалерея</p>
       </div>
   </div>
-
+  <div class="row align-items-end">  <!-- Третья строка -->
+      <div class="col-12">  <!-- Столбик на 12 позиций -->
+          <br><br><p class="text-center">Copyright ООО "В красках", 2016. Все права защищены.</p>
+      </div>
+  </div>
+</div>
 
 
 </body>
