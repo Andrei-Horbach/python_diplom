@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+<!-- Блок Заголовка -->
+{% block title %}Успешно! "В КРАСКАХ"{% endblock %}
+<!-- Блок Контента -->
+{% block content %}
+<div class="text-center">
+<h3>Заявка отправлена!</h3>
+<h5>Ожидайте, в скором времени мы с вами свяжемся.</h5>
+<a href="{% url 'index' %}" class="btn btn-danger btn-lg">Вернуться на главную страницу</a>
+</div>
+
+
+{% endblock %}

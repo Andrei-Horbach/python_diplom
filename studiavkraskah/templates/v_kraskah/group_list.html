@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+<!-- Блок Заголовка -->
+{% block title %}Группы и цены. "В красках"{% endblock %}
+<!-- Блок Контента -->
+{% block content %}
+
+<p align="center" style="font-size:25px" class="text-white bg-primary">Цены центра "В КРАСКАХ" на 2023-2024 учебный год</p>
+
+
+<table class="table table-warning table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Наименование</th>
+      <th scope="col">Возраст</th>
+      <th scope="col">Кол-во занятий в месяц</th>
+      <th scope="col">Месячный абонемент, руб.</th>
+    </tr>
+  </thead>
+  {% for group in group_list %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ group.name }}</th>
+      <td>{{ group.ages }}</td>
+      <td>4</td>
+      <td>{{ group.price }}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+{% endblock %}

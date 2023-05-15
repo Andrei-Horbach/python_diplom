@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+<!-- Блок Заголовка -->
+{% block title %}Программы{% endblock %}
+<!-- Блок Контента -->
+{% block content %}
+<h1>Наши программы</h1>
+{% if category_list %}
+    <div class="container">
+        <div class="row row-cols-2">
+            {% for category in category_list %}
+            <div class="col">
+                <div class="card">
+                  <img src="{{ category.photo_url }}" class="card-img-top" alt="изображение">
+
+                  <div class="card-body">
+                    <h5 class="card-title">{{ category.name }}</h5>
+                    <p class="card-text">{{ category.short_description}}</p>
+                    <a href="{{ category.get_absolute_url }}" class="btn btn-dark">Подробнее о курсе</a>
+                  </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% else %}
+    <p>В базе данных нет групп!</p>
+{% endif %}
+
+
+{% endblock %}
