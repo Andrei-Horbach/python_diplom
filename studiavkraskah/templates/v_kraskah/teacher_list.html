@@ -4,28 +4,48 @@
 {% block title %}Программы{% endblock %}
 <!-- Блок Контента -->
 {% block content %}
-<h1>Наши преподаватели</h1>
+<div class="text-center"><h2><i>Наши преподаватели</i></h2><br>
+</div>
+
 {% if teacher_list %}
-    {% for teacher in teacher_list %}
-    <div class="card" style="width: 18rem;">
-        <img src="{{ teacher.photo_url }}" class="card-img-top" alt="...">
-        <div class="card-body">
-        <h5 class="card-title">{{ teacher.last_name }} {{ teacher.first_name }} {{ teacher.sure_name }}</h5>
-        <p class="card-text">Небольшой пример текста, который должен основываться на названии карты и составлять основную часть содержимого карты.</p>
+<div class="container">
+    <div class="row">
+        {% for teacher in teacher_list %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ teacher.photo_url }}" width="400" height="250" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ teacher.last_name }} {{ teacher.first_name }} {{ teacher.sure_name }}</h5>
+                </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Возраст(лет): {{ teacher.age }}</li>
+                    <li class="list-group-item">Стаж преподавания(лет): {{ teacher.work_experience }}</li>
+                </ul>
+                <div class="card-body">
+                    <p><b>Предмет:</b><a href="{{ teacher.get_absolute_url_subject }}" class="card-link"> {{ teacher.get_subject }}</a></p>
+                    <p><b>Работает с:</b><a href="{{ teacher.get_absolute_url }}" class="card-link"> {{ teacher.get_age_group }}. </a></p>
+                </div>
+            </div>
         </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Возраст(лет): {{ teacher.age }}</li>
-        <li class="list-group-item">Стаж преподавания(лет): {{ teacher.work_experience }}</li>
-        </ul>
-        <div class="card-body">
-        <p><b>Предмет:</b><a href="{{ teacher.get_absolute_url_subject }}" class="card-link"> {{ teacher.get_subject }}</a></p>
-        <p><b>Работает с:</b><a href="{{ teacher.get_absolute_url }}" class="card-link"> {{ teacher.get_age_group }}. </a></p>
-        </div>
-    </div>
     {% endfor %}
+    </div>
+</div>
+    <div class="row">
+        <nav aria-label="Пример навигации по страницам">
+            <ul class="pagination justify-content-">
+              {% if page_obj.has_previous %}
+              <a class="page-link; btn btn-outline-info" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+              {% endif %}
+            </ul>
+            <ul class="pagination justify-content-end">
+              {% if page_obj.has_next %}
+              <a class="page-link; btn btn-outline-info" href="{{ request.path }}?page={{ page_obj.next_page_number }}">Следующая</a>
+              {% endif %}
+            </ul>
+        </nav>
+    </div>
 {% else %}
     <p>В базе данных нет преподавателей!</p>
 {% endif %}
-
 
 {% endblock %}

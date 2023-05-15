@@ -50,4 +50,5 @@ class CategoryDetailView(generic.DetailView):
 
 class TeacherListView(generic.ListView):
     model = Teacher
+    paginate_by = 3
 
