@@ -29,21 +29,29 @@
         </div>
     {% endfor %}
     </div>
-</div>
-    <div class="row">
-        <nav aria-label="Пример навигации по страницам">
-            <ul class="pagination justify-content-">
-              {% if page_obj.has_previous %}
-              <a class="page-link; btn btn-outline-info" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Предыдущая</a>
-              {% endif %}
-            </ul>
-            <ul class="pagination justify-content-end">
-              {% if page_obj.has_next %}
-              <a class="page-link; btn btn-outline-info" href="{{ request.path }}?page={{ page_obj.next_page_number }}">Следующая</a>
-              {% endif %}
-            </ul>
-        </nav>
+
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+            <div class="btn-group" role="group" aria-label="Second group">
+                {% if page_obj.has_previous %}
+                <a class="btn btn-outline-info" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+                {% endif %}
+                <a class="btn btn-sm btn-outline-secondary" href="#">{{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</a>
+                {% if page_obj.has_next %}
+                <a class="btn btn-outline-info" href="{{ request.path }}?page={{ page_obj.next_page_number }}">Следующая</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col">
+        </div>
+      </div>
     </div>
+
+</div>
 {% else %}
     <p>В базе данных нет преподавателей!</p>
 {% endif %}

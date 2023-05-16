@@ -1,3 +1,5 @@
+from typing import Dict, Any
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *  # Импорт всех моделей
@@ -6,9 +8,7 @@ from .forms import Course_registration
 
 
 def index(request):
-    categoryss = None
-    teachers = None
-    context = {'categorys': categoryss, 'teachers': teachers}
+    context = {}
     return render(request, "index.html", context=context)
 
 
@@ -52,3 +52,10 @@ class TeacherListView(generic.ListView):
     model = Teacher
     paginate_by = 3
 
+
+def our_rules(request):
+    return render(request, "our_rules.html")
+
+
+def contacts(request):
+    return render(request, "contacts.html")
