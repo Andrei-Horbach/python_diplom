@@ -1,8 +1,8 @@
-from django import forms
 from .models import UserCallBack
 from django.forms import ModelForm, TextInput
 
 
+# Форма для обратного звонка
 class Course_registration(ModelForm):
     class Meta:
         model = UserCallBack

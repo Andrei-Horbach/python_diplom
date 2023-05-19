@@ -1,17 +1,17 @@
-from typing import Dict, Any
-
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import *  # Импорт всех моделей
-from django.views import generic  # Нужен для автоматического чтения
+from .models import *
+from django.views import generic
 from .forms import Course_registration
 
 
+# Главная страница
 def index(request):
     context = {}
     return render(request, "index.html", context=context)
 
 
+# Метод возвращающий шаблон "templates/call_back.html"
 def call_back(request):
     error = ''
     if request.method == "POST":
@@ -28,34 +28,43 @@ def call_back(request):
     return render(request, 'call_back.html', data)
 
 
+# Метод возвращающий шаблон "templates/answer.html"
 def answer(request):
     return render(request, 'answer.html')
 
 
+# Возвращает все Группы. (Автоматически генерируется при помощи DetailView)
+# Шаблон "templates/v-kraskah/group_list.html"
 class PriceListView(generic.ListView):
     model = Group
 
 
+# Возвращает все категории.
+# Шаблон "templates/v-kraskah/category_list.html"
 class CategoryListView(generic.ListView):
     model = Category
 
 
-# Возвращает конкретную книгу. (Автоматически генерируется при помощи DetailView)
-# Шаблон "templates/catalog/book_detail.html"
-# Переменная (входная): "int:pk"
-# Переменная (шаблона/ключ): "book"
+# Возвращает конкретную категорию.
+# Шаблон "templates/v-kraskah/category_detail.html"
 class CategoryDetailView(generic.DetailView):
     model = Category
 
 
+# Возвращает всех преподавателей.
+# Шаблон "templates/v-kraskah/teacher_list.html"
 class TeacherListView(generic.ListView):
     model = Teacher
     paginate_by = 3
 
 
+# Метод "Наши правила".
+# Шаблон "templates/our_rules.html"
 def our_rules(request):
     return render(request, "our_rules.html")
 
 
+# Метод "Контакты".
+# Шаблон "templates/contacts.html"
 def contacts(request):
     return render(request, "contacts.html")
